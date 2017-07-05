@@ -1,6 +1,8 @@
-#image{
+#blur-image{
     display: block;
     width: 788px;
     height: 800px;
     margin: 0 auto;
+
+    filter: blur(20px);
 }
