@@ -1,8 +1,8 @@
 /**
  * Created by stone on 2017/7/5.
  */
-var canvasWidth = 788;
-var canvasHeight = 800;
+var canvasWidth = window.innerWidth;
+var canvasHeight = window.innerHeight;
 
 var canvas = document.getElementById("canvas");
 var context = canvas.getContext("2d");
@@ -13,15 +13,31 @@ canvas.height = canvasHeight;
 var image =  new Image();
 var radius = 50;
 var clippingRegion = {x:-1,y:-1,r:radius};
+var leftMargin = 0;
+var topMargin = 0;
 image.src = "image.jpg";
 image.onload = function () {
+    $("#blur-div").css("width",canvasWidth + "px");
+    $("#blur-div").css("height",canvasHeight + "px");
+
+    $("#blur-image").css("width",image.width + "px");
+    $("#blur-image").css("height",image.height + "px");
+
+    leftMargin = (image.width - canvas.width) / 2;
+    topMargin = (image.height - canvas.height) / 2;
+
+    $("#blur-image").css("top",String(-topMargin) + "px");
+    $("#blur-image").css("left",String(-leftMargin) + "px");
+
     initCanvas()
 };
 
 function initCanvas(){
+    var theleft = leftMargin<0?-leftMargin:0;
+    var thetop = topMargin<0?-topMargin:0;
     clippingRegion = {
-        x:Math.random()*(canvasWidth-2*radius)+radius,
-        y:Math.random()*(canvasHeight-2*radius)+radius,
+        x:Math.random()*(canvasWidth-2*radius - 2* theleft)+radius + theleft,
+        y:Math.random()*(canvasHeight-2*radius - 2* thetop)+radius + thetop,
         r:radius
     };
     draw(image,clippingRegion)
@@ -38,7 +54,16 @@ function draw(image,clippingRegion){
 
     context.save();
     setClippingRegion(clippingRegion);
-    context.drawImage(image,0,0);
+    context.drawImage(
+        image,
+        Math.max(leftMargin,0),
+        Math.max(topMargin,0),
+        Math.min(canvas.width,image.width),
+        Math.min(canvas.height,image.height),
+        leftMargin<0?-leftMargin:0,
+        topMargin<0?-topMargin:0,
+        Math.min(canvas.width,image.width),
+        Math.min(canvas.height,image.height));
     context.restore();
 }
 
@@ -59,3 +84,7 @@ function show(){
 function reset(){
     initCanvas()
 }
+
+canvas.addEventListener("touchstart", function (e) {
+    e.preventDefault()
+});
