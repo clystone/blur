@@ -1,3 +1,10 @@
+#blur-div{
+    width: 788px;
+    height: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+
 #blur-image{
     display: block;
     width: 788px;
@@ -5,4 +12,21 @@
     margin: 0 auto;
 
     filter: blur(20px);
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    z-index: 0;
+}
+
+#canvas{
+    display: block;
+    margin:0 auto;
+
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    z-index:100;
 }
