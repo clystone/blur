@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e6038931-e93c-4026-96a3-7f5e3f10df6e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
     </list>
     <ignored path="blur.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -263,7 +262,13 @@
       <option name="project" value="LOCAL" />
       <updated>1499240446315</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="测试">
+      <created>1499240541414</created>
+      <option name="number" value="00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1499240541414</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -297,7 +302,8 @@
     <MESSAGE value="test" />
     <MESSAGE value="模糊图片" />
     <MESSAGE value="canvas清晰块" />
-    <option name="LAST_COMMIT_MESSAGE" value="canvas清晰块" />
+    <MESSAGE value="测试" />
+    <option name="LAST_COMMIT_MESSAGE" value="测试" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
